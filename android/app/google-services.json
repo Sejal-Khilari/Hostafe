@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "160498970182",
+    "project_id": "emailpasswordauth-95deb",
+    "storage_bucket": "emailpasswordauth-95deb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160498970182:android:17a02cf5cb14ca314d2447",
+        "android_client_info": {
+          "package_name": "com.example.email_password"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160498970182-1k6mue80fbe4ou3i77jg3lc2pevkpk20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLtH9VOd39ozk29EH3oGLHqYfl1ovfjGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160498970182-1k6mue80fbe4ou3i77jg3lc2pevkpk20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
