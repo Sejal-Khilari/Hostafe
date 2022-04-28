@@ -1,13 +1,35 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../model/user_model.dart';
 import '../login_screen.dart';
-import '../pages/people.dart';
+
 import '../pages/settings.dart';
 import 'drawer_item.dart';
 
-class NavigationDrawer extends StatelessWidget {
+class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
+
+  @override
+  State<NavigationDrawer> createState() => _NavigationDrawerState();
+}
+
+class _NavigationDrawerState extends State<NavigationDrawer> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,24 +115,24 @@ class NavigationDrawer extends StatelessWidget {
 
     switch (index) {
       case 0:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const People()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Settings1()));
         break;
       case 1:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Settings()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Settings1()));
         break;
       case 2:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Settings()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Settings1()));
         break;
       case 3:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Settings()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Settings1()));
         break;
       case 4:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Settings()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Settings1()));
         break;
       case 5:
         logout(context);
@@ -132,13 +154,13 @@ class NavigationDrawer extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text('Person name',
+          children: [
+            Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
                 style: TextStyle(fontSize: 14, color: Colors.white)),
             SizedBox(
               height: 10,
             ),
-            Text('person@email.com',
+            Text("${loggedInUser.email}",
                 style: TextStyle(fontSize: 14, color: Colors.white))
           ],
         )
