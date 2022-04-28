@@ -35,7 +35,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color: Colors.black,
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24.0, 80, 24, 0),
           child: SingleChildScrollView(
@@ -49,7 +49,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 const Divider(
                   thickness: 1,
                   height: 5,
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 const SizedBox(
                   height: 25,
@@ -70,15 +70,15 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   height: 25,
                 ),
                 DrawerItem(
-                    name: 'Need help?',
-                    icon: Icons.settings,
+                    name: 'Contact Us',
+                    icon: Icons.contact_mail,
                     onPressed: () => onItemPressed(context, index: 2)),
                 const SizedBox(
                   height: 25,
                 ),
                 DrawerItem(
                     name: 'About Us',
-                    icon: Icons.favorite_outline,
+                    icon: Icons.info,
                     onPressed: () => onItemPressed(context, index: 3)),
                 const SizedBox(
                   height: 30,
@@ -93,7 +93,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 // ),
                 DrawerItem(
                     name: 'Feedback',
-                    icon: Icons.settings,
+                    icon: Icons.feedback,
                     onPressed: () => onItemPressed(context, index: 4)),
                 const SizedBox(
                   height: 25,
@@ -156,12 +156,12 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("${loggedInUser.firstName} ${loggedInUser.secondName}",
-                style: TextStyle(fontSize: 14, color: Colors.white)),
+                style: TextStyle(fontSize: 17, color: Colors.black)),
             SizedBox(
               height: 10,
             ),
             Text("${loggedInUser.email}",
-                style: TextStyle(fontSize: 14, color: Colors.white))
+                style: TextStyle(fontSize: 17, color: Colors.black))
           ],
         )
       ],

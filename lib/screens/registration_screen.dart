@@ -142,32 +142,32 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             )));
 
     //Confirm Password field
-    // final confirmPasswordField = TextFormField(
-    //     autofocus: false,
-    //     controller: confirmPasswordNameEditingController,
-    //     //keyboardType: TextInputType.emailAddress,
-    //     obscureText: true,
-    //     validator: (value) {
-    //       if (confirmPasswordNameEditingController.text !=
-    //           passwordNameEditingController.text) {
-    //         return "Password don't match";
-    //       }
-    //       return null;
-    //     },
-    //     onSaved: (value) {
-    //       confirmPasswordNameEditingController.text = value!;
-    //     },
-    //     textInputAction: TextInputAction.done,
-    //     decoration: InputDecoration(
-    //         prefixIcon: Icon(
-    //           Icons.vpn_key,
-    //           color: kPrimaryColor,
-    //         ),
-    //         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-    //         hintText: "Confirm Password",
-    //         border: OutlineInputBorder(
-    //           borderRadius: BorderRadius.circular(20),
-    //         )));
+    final confirmPasswordField = TextFormField(
+        autofocus: false,
+        controller: confirmPasswordNameEditingController,
+        //keyboardType: TextInputType.emailAddress,
+        obscureText: true,
+        validator: (value) {
+          if (confirmPasswordNameEditingController.text !=
+              passwordNameEditingController.text) {
+            return "Password don't match";
+          }
+          return null;
+        },
+        onSaved: (value) {
+          confirmPasswordNameEditingController.text = value!;
+        },
+        textInputAction: TextInputAction.done,
+        decoration: InputDecoration(
+            prefixIcon: Icon(
+              Icons.vpn_key,
+              color: kPrimaryColor,
+            ),
+            contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+            hintText: "Confirm Password",
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+            )));
 
     //SignUp button
     final signUpButton = Material(
