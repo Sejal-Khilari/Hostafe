@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_password/screens/pages/myacccount.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -116,7 +117,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
     switch (index) {
       case 0:
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const Settings1()));
+            MaterialPageRoute(builder: (context) => const MyAccount()));
         break;
       case 1:
         Navigator.push(context,
