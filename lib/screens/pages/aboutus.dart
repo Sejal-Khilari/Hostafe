@@ -23,6 +23,7 @@ class _aboutusState extends State<aboutus> with SingleTickerProviderStateMixin {
   void dispose() {
     _controller.dispose();
     super.dispose();
+
   }
 
   @override
