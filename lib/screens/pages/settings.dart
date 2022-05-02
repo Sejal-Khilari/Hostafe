@@ -9,10 +9,6 @@ class Settings1 extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings1> {
-  // bool _isDark = false;
-  // ThemeData _light = ThemeData.light();
-  // ThemeData _dark = ThemeData.dark();
-
   bool valNotify1 = true;
   bool valNotify2 = false;
   bool valNotify3 = false;
@@ -37,12 +33,6 @@ class _SettingsState extends State<Settings1> {
 
   @override
   Widget build(BuildContext context) {
-    //return MaterialApp(
-    // darkTheme: _dark,
-    // theme: _light,
-    // themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-    // debugShowCheckedModeBanner: false,
-    // title: 'Flutter Theme',
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -123,9 +113,6 @@ class _SettingsState extends State<Settings1> {
               value: value,
               onChanged: (bool newValue) {
                 onChangeMethod(newValue);
-                // setState(() {
-                //   _isDark = !_isDark;
-                // });
               },
             ),
           )

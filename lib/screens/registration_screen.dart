@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:email_password/model/user_model.dart';
-import 'package:email_password/screens/home_screen.dart';
+import 'package:Hostafe/model/user_model.dart';
+import 'package:Hostafe/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:email_password/constants.dart';
+import 'package:Hostafe/constants.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -227,8 +227,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       emailField,
                       SizedBox(height: 10),
                       passwordField,
-                      // SizedBox(height: 10),
-                      // confirmPasswordField,
+                      SizedBox(height: 10),
+                      confirmPasswordField,
                       SizedBox(height: 15),
                       signUpButton,
                       SizedBox(height: 10),

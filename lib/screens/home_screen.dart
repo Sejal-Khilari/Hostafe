@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:email_password/constants.dart';
+import 'package:Hostafe/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'navigation/navigation_drawer.dart';
 import 'navigation/search_screen.dart';
@@ -27,14 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
       autofocus: false,
       controller: searchController,
       keyboardType: TextInputType.name,
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => SearchScreen(),
-          ),
-        );
-      },
+      onTap: () => showSearch(context: context, delegate: Hostel()),
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) => Hostel(),
+      //   ),
+      // );
+
       onSaved: (value) {
         searchController.text = value!;
       },
@@ -65,7 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.black26,
+                    color: Colors.black12,
+                    //color: Color.fromARGB(19, 92, 92, 92),
                     // border: Border.all(
                     //   width: 1,
                     // ),
@@ -152,12 +153,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+                  height: 300,
+                  // height: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(
-                    color: Colors.greenAccent,
+                    color: Colors.black26,
+                    // border: Border.all(
+                    //   width: 1,
+                    // ),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25),
+                    ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                     child: Column(
                       children: <Widget>[
                         Flexible(
@@ -167,20 +176,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               Flexible(
                                 flex: 1,
                                 child: Column(
-                                  // mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   // crossAxisAlignment:
                                   //     CrossAxisAlignment.center,
                                   children: <Widget>[
-                                    Image.asset(
-                                      "assets/1img.jpg",
-                                      fit: BoxFit.contain,
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.asset(
+                                        "assets/1img.jpg",
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 5,
                                     ),
                                     Text(
                                       "Packers & Movers",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: 15),
                                     ),
                                   ],
                                 ),
@@ -191,14 +203,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               Flexible(
                                 flex: 1,
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    Image.asset("assets/2img.jpg"),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.asset(
+                                        "assets/1img.jpg",
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
                                     SizedBox(
                                       height: 5,
                                     ),
                                     Text(
                                       "Pay Rent",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: 15),
                                     ),
                                   ],
                                 ),
@@ -206,9 +225,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        // SizedBox(
+                        //   height: 10,
+                        // ),
                         Flexible(
                           flex: 1,
                           child: Row(
@@ -217,13 +236,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 flex: 1,
                                 child: Column(
                                   children: <Widget>[
-                                    Image.asset("assets/3img.jpg"),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.asset(
+                                        "assets/3img.jpg",
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
                                     SizedBox(
                                       height: 5,
                                     ),
                                     Text(
                                       "Services &  Repairs",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: 15),
                                     ),
                                   ],
                                 ),
@@ -235,13 +260,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 flex: 1,
                                 child: Column(
                                   children: <Widget>[
-                                    Image.asset("assets/4img.jpg"),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(15),
+                                      child: Image.asset(
+                                        "assets/4img.jpg",
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
                                     SizedBox(
                                       height: 5,
                                     ),
                                     Text(
                                       "Painting & Cleaning",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: 15),
                                     ),
                                   ],
                                 ),
@@ -252,6 +283,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Hostel Searching App",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
               ],
             ),

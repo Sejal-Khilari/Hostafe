@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:email_password/screens/pages/myacccount.dart';
+import 'package:Hostafe/screens/pages/aboutus.dart';
+import 'package:Hostafe/screens/pages/contactus.dart';
+import 'package:Hostafe/screens/pages/myacccount.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -92,17 +94,17 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 // const SizedBox(
                 //   height: 30,
                 // ),
-                DrawerItem(
-                    name: 'Feedback',
-                    icon: Icons.feedback,
-                    onPressed: () => onItemPressed(context, index: 4)),
-                const SizedBox(
-                  height: 25,
-                ),
+                // DrawerItem(
+                //     name: 'Feedback',
+                //     icon: Icons.feedback,
+                //     onPressed: () => onItemPressed(context, index: 4)),
+                // const SizedBox(
+                //   height: 25,
+                // ),
                 DrawerItem(
                     name: 'Log out',
                     icon: Icons.logout,
-                    onPressed: () => onItemPressed(context, index: 5)),
+                    onPressed: () => onItemPressed(context, index: 4)),
               ],
             ),
           ),
@@ -125,17 +127,13 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         break;
       case 2:
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const Settings1()));
+            MaterialPageRoute(builder: (context) => const contactus()));
         break;
       case 3:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const Settings1()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const aboutus()));
         break;
       case 4:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const Settings1()));
-        break;
-      case 5:
         logout(context);
         break;
     }
