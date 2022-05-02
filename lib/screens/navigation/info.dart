@@ -120,6 +120,8 @@
 //   }
 // }
 
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -137,6 +139,7 @@ class _hosteldatState extends State<hosteldat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD1C4E9),
       appBar: AppBar(
         backgroundColor: Color(0xFF700bef),
         title: Text('Hostel Details '),
@@ -144,176 +147,173 @@ class _hosteldatState extends State<hosteldat> {
       body: Container(
         // padding: EdgeInsets.all(20),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(30, 20, 30, 10),
+          padding: EdgeInsets.fromLTRB(15, 10, 15, 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Card(
-                // margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                color: Colors.lightBlue,
+                elevation: 10,
+                color: Colors.yellow.shade50,
                 child: Row(
                   children: <Widget>[
-                    Text(
-                      'College Name : ' + widget.data!.get('clg_name'),
-                      style: TextStyle(
-                        fontSize: 20,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'College Name : ' + widget.data!.get('clg_name'),
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ],
                   // child:
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              // SizedBox(
+              //   height: 0,
+              // ),
               Card(
-                // margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                color: Colors.lightBlue,
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      'Hostel Name : ' + widget.data!.get('hostel_name'),
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                  // child:
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Card(
-                // margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                color: Colors.lightBlue,
+                elevation: 10,
+                color: Colors.yellow.shade50,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Hostel Name : ' + widget.data!.get('hostel_name'),
 
-                child: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Row(
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              // SizedBox(
+              //   height: 0.2,
+              // ),
+              Card(
+                elevation: 10,
+                color: Colors.yellow.shade50,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Address : ' + widget.data!.get('hostel_address'),
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              // SizedBox(
+              //   height: 5,
+              // ),
+              Card(
+                elevation: 10,
+                color: Colors.yellow.shade50,
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Contact No : ' + widget.data!.get('contact_no'),
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ],
+                  // child:
+                ),
+              ),
+              // SizedBox(
+              //   height: 5,
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          'Address : ' + widget.data!.get('hostel_address'),
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
+                      Card(
+                        elevation: 10,
+                        color: Colors.yellow.shade50,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Price : ' + widget.data!.get('price'),
+                              style: TextStyle(
+                                fontSize: 20,
+                              )),
                         ),
                       ),
                     ],
                     // child:
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Card(
-                // margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                color: Colors.lightBlue,
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      'Contact No : ' + widget.data!.get('contact_no'),
-                      style: TextStyle(
-                        fontSize: 20,
+                  Card(
+                    color: Colors.yellow.shade50,
+                    elevation: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Distance : ' + widget.data!.get('distance'),
+                        style: TextStyle(
+                            fontSize: 20,
+                            ),
                       ),
                     ),
-                  ],
-                  // child:
-                ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Card(
-                // margin: EdgeInsets.fromLTRB(15, 15, 20, 0),
-                color: Colors.lightBlue,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Card(
-                            child: Text('Price : ' + widget.data!.get('price'),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                )),
-                          ),
-                        ],
-                        // child:
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Card(
-                        child: Text(
-                          'Distance : ' + widget.data!.get('distance'),
-                          style: TextStyle(
-                              fontSize: 20,
-                              backgroundColor:
-                                  Color(0xFF700bef).withOpacity(0.2)),
+              // SizedBox(
+              //   height: 5,
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Card(
+                        elevation: 10,
+                        color: Colors.yellow.shade50,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('Mess : ' + widget.data!.get('mess'),
+                              style: TextStyle(
+                                fontSize: 20,
+                              )),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Card(
-                // margin: EdgeInsets.fromLTRB(15, 15, 20, 0),
-                color: Colors.lightBlue,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Card(
-                            child: Text('Mess : ' + widget.data!.get('mess'),
-                                style: TextStyle(
-                                  fontSize: 20,
-                                )),
-                          ),
-                        ],
-                        // child:
+                    ],
+                    // child:
+                  ),
+                  Card(
+                    color: Colors.yellow.shade50,
+                    elevation: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Gender : ' + widget.data!.get('gender'),
+                        style: TextStyle(
+                            fontSize: 20,
+                            ),
                       ),
                     ),
-                    Flexible(
-                      flex: 1,
-                      child: Card(
-                        child: Text(
-                          'Gender : ' + widget.data!.get('gender'),
-                          style: TextStyle(
-                              fontSize: 20,
-                              backgroundColor:
-                                  Color(0xFF700bef).withOpacity(0.2)),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 10,
-              ),
+              // SizedBox(
+              //   height: 5,
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Card(
-                    // margin: EdgeInsets.all(20),
+                    margin: EdgeInsets.all(10),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    color: Colors.yellow.shade50,
+                    elevation: 10,
                     child: TextButton(
                       child: const Text(
                         'Click Here to view on maps ',
@@ -327,9 +327,9 @@ class _hosteldatState extends State<hosteldat> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
+              // SizedBox(
+              //   height: 5,
+              // ),
             ],
           ),
         ),

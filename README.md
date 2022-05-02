@@ -1,4 +1,4 @@
-# email_password
+# Hostafe
 
 A new Flutter project.
 
