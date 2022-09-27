@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:Hostafe/screens/login_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -20,35 +21,40 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   primarySwatch: Colors.red,
       // ),
-      home: AnimatedSplashScreen(
-        splash: Center(
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(
-                  "assets/1img.jpg",
-                  fit: BoxFit.contain,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "Hostafe",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 26,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        duration: 1500,
-        splashTransition: SplashTransition.fadeTransition,
-        nextScreen: LoginScreen(),
-      ),
+      home: LoginScreen(),
+      // home: AnimatedSplashScreen(
+      //   splash: Center(
+      //     child: Padding(
+      //       padding: EdgeInsets.fromLTRB(30, 100, 30, 300),
+      //       child: Column(
+      //         mainAxisAlignment: MainAxisAlignment.start,
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: <Widget>[
+      //           ClipRRect(
+      //             borderRadius: BorderRadius.circular(50),
+      //             child: Image.asset(
+      //               "assets/login.png",
+      //               fit: BoxFit.contain,
+      //             ),
+      //           ),
+      //           SizedBox(
+      //             height: 10,
+      //           ),
+      //           Text(
+      //             "Hostafe",
+      //             style: TextStyle(
+      //               fontWeight: FontWeight.bold,
+      //               fontSize: 26,
+      //             ),
+      //           ),
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      //   duration: 1500,
+      //   splashTransition: SplashTransition.fadeTransition,
+      //   nextScreen: LoginScreen(),
+      // ),
     );
   }
 }

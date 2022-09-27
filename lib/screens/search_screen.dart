@@ -74,6 +74,8 @@ import 'package:Hostafe/screens/navigation/info.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:Hostafe/constants.dart';
+// import 'navigation/filter_screen.dart';
+import 'filter_screen.dart';
 
 class Hostel extends SearchDelegate {
   CollectionReference _firebaseFirestore =
@@ -98,6 +100,8 @@ class Hostel extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
+    bool valueb = false;
+
     return StreamBuilder<QuerySnapshot>(
         stream: _firebaseFirestore.snapshots().asBroadcastStream(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -113,6 +117,44 @@ class Hostel extends SearchDelegate {
                 .isEmpty) {
               return Center(
                 child: Text("No such query found"),
+              );
+            } else if (valueb == true) {
+              return ListView(
+                children: [
+                  ...snapshot.data!.docs
+                      .where((QueryDocumentSnapshot<Object?> element) =>
+                          element['gender']
+                              .toString()
+                              .toLowerCase()
+                              .contains(query.toLowerCase()) ==
+                          "boys")
+                      .map((QueryDocumentSnapshot<Object?> data) {
+                    final String clg_name = data.get('clg_name');
+                    final String price = data['price'];
+                    final String hostel_name = data['hostel_name'];
+                    final String contact_no = data['contact_no'];
+                    final String distance = data['distance'];
+                    final String hostel_address = data['hostel_address'];
+                    final String location = data['location'];
+                    final String mess = data['mess'];
+                    final String gender = data['gender'];
+
+                    return ListTile(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => hosteldat(data: data),
+                            ));
+                      },
+                      title: Text(
+                        hostel_name,
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      //subtitle: Text(price + hostel_name),
+                    );
+                  })
+                ],
               );
             } else {
               return ListView(
@@ -158,6 +200,55 @@ class Hostel extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(child: Text("Search anything here"));
+    bool valueb = false;
+    return StatefulBuilder(
+      builder: (BuildContext context, StateSetter setState) {
+        return Center(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                // Text("Search anything here"),
+                SizedBox(
+                  height: 5,
+                ),
+                Material(
+                  elevation: 5,
+                  borderRadius: BorderRadius.circular(5),
+                  color: kPrimaryColor,
+                  child: MaterialButton(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    minWidth: MediaQuery.of(context).size.aspectRatio,
+                    // minWidth: MediaQuery.of(context).size.width,
+                    onPressed: () {
+                      // signIn(emailController.text, passwordController.text);
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => FilterScreen()));
+                    },
+                    child: Text(
+                      "Filters",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                // Checkbox(
+                //   value: valueb,
+                //   onChanged: (bool valueb) {
+                //     setState(() {
+                //       value = valueb;
+                //     });
+                //   },
+                // ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

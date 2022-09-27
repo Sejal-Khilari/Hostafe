@@ -160,7 +160,11 @@ class _hosteldatState extends State<hosteldat> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'College Name : ' + widget.data!.get('clg_name'),
+                        'College Name : ' +
+                            widget.data!
+                                .get('clg_name')
+                                .toString()
+                                .toUpperCase(),
                         style: TextStyle(
                           fontSize: 20,
                         ),
@@ -180,7 +184,6 @@ class _hosteldatState extends State<hosteldat> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Hostel Name : ' + widget.data!.get('hostel_name'),
-
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -193,7 +196,6 @@ class _hosteldatState extends State<hosteldat> {
               Card(
                 elevation: 10,
                 color: Colors.yellow.shade50,
-
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
@@ -257,8 +259,8 @@ class _hosteldatState extends State<hosteldat> {
                       child: Text(
                         'Distance : ' + widget.data!.get('distance'),
                         style: TextStyle(
-                            fontSize: 20,
-                            ),
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ),
@@ -296,8 +298,8 @@ class _hosteldatState extends State<hosteldat> {
                       child: Text(
                         'Gender : ' + widget.data!.get('gender'),
                         style: TextStyle(
-                            fontSize: 20,
-                            ),
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ),
@@ -311,7 +313,8 @@ class _hosteldatState extends State<hosteldat> {
                 children: <Widget>[
                   Card(
                     margin: EdgeInsets.all(10),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     color: Colors.yellow.shade50,
                     elevation: 10,
                     child: TextButton(

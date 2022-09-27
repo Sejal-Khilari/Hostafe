@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:Hostafe/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'navigation/navigation_drawer.dart';
-import 'navigation/search_screen.dart';
+import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 300,
+                  height: 400,
                   // height: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(
                     color: Colors.black26,
@@ -166,12 +166,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                     child: Column(
                       children: <Widget>[
                         Flexible(
                           flex: 1,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Flexible(
                                 flex: 1,
@@ -183,7 +184,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Image.asset(
-                                        "assets/1img.jpg",
+                                        "assets/packers.jpeg",
+                                        height: 125,
+                                        width: 125,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -198,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               SizedBox(
-                                width: 20,
+                                width: 30,
                               ),
                               Flexible(
                                 flex: 1,
@@ -208,7 +211,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Image.asset(
-                                        "assets/1img.jpg",
+                                        "assets/payrent.jpeg",
+                                        height: 125,
+                                        width: 125,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -231,6 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Flexible(
                           flex: 1,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Flexible(
                                 flex: 1,
@@ -239,7 +245,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Image.asset(
-                                        "assets/3img.jpg",
+                                        "assets/services.jpeg",
+                                        height: 125,
+                                        width: 125,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -254,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               SizedBox(
-                                width: 20,
+                                width: 30,
                               ),
                               Flexible(
                                 flex: 1,
@@ -263,7 +271,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Image.asset(
-                                        "assets/4img.jpg",
+                                        "assets/painting.jpeg",
+                                        height: 125,
+                                        width: 125,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
